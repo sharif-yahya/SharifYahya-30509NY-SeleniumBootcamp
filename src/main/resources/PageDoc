@@ -1,0 +1,18 @@
+1- HomePage
+step1:getTitle
+step2:logoCheck
+step3:logoCheck espn+
+
+2-SoccerPage
+step1:soccerHomePage
+step2:PremierLeaguePage
+step3:CHELSEACulbPage
+step4:ChelseaSquadPage
+
+nav to HomePage
+
+3-NFLPage
+step1:NEWYORkJETSPage
+step2:SchedulePage
+
+nav to HomePage
