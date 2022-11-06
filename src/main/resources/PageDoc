@@ -2,17 +2,27 @@
 step1:getTitle
 step2:logoCheck
 step3:logoCheck espn+
+step4:navigate to soccer page
 
-2-SoccerPage
+2-SoccerPage --verify mohamed elneny profile
 step1:soccerHomePage
 step2:PremierLeaguePage
-step3:CHELSEACulbPage
-step4:ChelseaSquadPage
+step3:teamPage
+step4:ArsenalCulbPage
+step5:ArsenalSquadPage
+step6:mohamedElNeNyPage
+step7:navigate to NBA page
 
-nav to HomePage
 
-3-NFLPage
-step1:NEWYORkJETSPage
-step2:SchedulePage
+
+3-NBAPage
+step1:nbaPage
+step2:teamPage
+step3:BrooklynNetPage
+step4:StatsPage
+step4:KyrieIrvingStats
+step5:check img isDisplayed
+step6:navigate to home page
+
 
 nav to HomePage

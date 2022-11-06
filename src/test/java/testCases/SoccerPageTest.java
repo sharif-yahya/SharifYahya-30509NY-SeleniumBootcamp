@@ -4,13 +4,16 @@ import base.TestBase;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.HomePage;
+import pages.EspnHomePage;
+import pages.NbaPage;
 import pages.SoccerPage;
 
 public class SoccerPageTest extends TestBase {
 
     SoccerPage soccerPage;
-    HomePage homePage;
+    EspnHomePage homePage;
+
+    NbaPage nbaPage;
 
     public SoccerPageTest(){
         super();
@@ -19,13 +22,21 @@ public class SoccerPageTest extends TestBase {
     public void setUp(){
         initialization();
         soccerPage = new SoccerPage();
-        homePage = new HomePage();
+        homePage = new EspnHomePage();
+        nbaPage = new NbaPage();
+
 
     }
-    @Test
-    public void soccerPageTest(){
-        soccerPage.soccerPage();
+    @Test(priority = 1)
+    public void verifyMohamedElNeNyPageTest(){
+        soccerPage.verifyMohamedElNeNyPage();
     }
+    @Test(priority = 2)
+    public void navigateToNbaPageTest(){
+        soccerPage.navigateNbaPage();
+
+    }
+
     @AfterMethod
     public void tearDown(){
         driver.quit();

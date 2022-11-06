@@ -10,18 +10,22 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocator;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.testng.annotations.Test;
+import util.TestUtil;
 
 public class SoccerPage extends TestBase {
 
 
-    @FindBy(xpath = "//a[@name='&lpos=sitenavdefault+sitenav_soccer']")
-    WebElement soccerBtn;
+    TestUtil testUtil;
+
+    public static By soccerBy = By.xpath(  "//a[@name='&lpos=sitenavdefault+sitenav_soccer']");
+  //  WebElement soccerBtn;
 
     @FindBy(xpath = "//a[@name='&lpos=subnav+subnav__team_premier_league']")
     WebElement premierLeaguePage;
 
-    @FindBy(xpath = "//a[@name='&lpos=subnav+subnav_soccer_teams']")
-    WebElement teamPage;
+   public static By soccer2 =By.xpath( "//a[@name='&lpos=subnav+subnav_soccer_teams']");
+   // WebElement teamPage;
 
     @FindBy(xpath = "//a[@name='&lpos=subnav+subnav_soccer_arsenal']")
     WebElement arsenalPage;
@@ -32,6 +36,9 @@ public class SoccerPage extends TestBase {
     @FindBy(xpath = "//a[contains(text(),'Mohamed Elneny')]")
     WebElement mohamedElnenyPage;
 
+    @FindBy(xpath = "//body[@class='index desktop page-context-top prod']")
+    WebElement nbaPage;
+
 
 
 
@@ -39,17 +46,21 @@ public class SoccerPage extends TestBase {
 
         AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver,30);
         PageFactory.initElements(driver, this);
+        testUtil = new TestUtil();
+
     }
 
-    public HomePage soccerPage() {
+    public void verifyMohamedElNeNyPage() {
 
-        Actions action = new Actions(driver);
+      /*  Actions action = new Actions(driver);
 
-        action.moveToElement(soccerBtn).build().perform();
+        action.moveToElement(soccerBtn).build().perform();*/
+
+        testUtil.Actions(soccerBy);
 
         premierLeaguePage.click();
 
-        action.moveToElement(teamPage).build().perform();
+       testUtil.Actions(soccer2);
 
         arsenalPage.click();
 
@@ -57,12 +68,15 @@ public class SoccerPage extends TestBase {
 
         mohamedElnenyPage.click();
 
-        driver.get(prop.getProperty("url"));
-
-        return new HomePage();
-
 
     }
+
+    public NbaPage navigateNbaPage(){
+        nbaPage.click();
+        return new NbaPage();
+    }
+
+
 
 
 }
